@@ -1,0 +1,68 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: U.K. Indicators For The Sustainable Development Goals
+description: Data Platform Prototype
+baseurl: "" # the subpath of your site, e.g. /blog
+url: ""
+data_dir: data
+environment: production
+remotedatabaseurl: "https://sustainabledevelopment-uk.github.io/sdg-data"
+# permalink: /news/:year/:month/:day/:title.html
+
+jekyll_get_data:
+  - data: meta
+    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/meta/all.json'
+    # cache: true
+    # directory: 'remotedata'
+  - data: headlines
+    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/headline/all.json'
+    # cache: true
+    # directory: 'remotedata'
+  - data: schema
+    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/meta/schema.json'
+
+analytics:
+  ga_prod: 'UA-108503280-1'
+
+###################################################################################################
+email_contacts:
+  questions: sustainabledevelopment@ons.gov.uk
+  suggestions: sustainabledevelopment@ons.gov.uk
+  functional: sustainabledevelopment@ons.gov.uk
+###################################################################################################
+
+# Github Repo for Data
+repo_name: sdg-data
+branch: develop
+org_name: ONSdigital
+
+# Build settings
+markdown: kramdown
+
+# Travis Support
+exclude: [vendor, scripts, remotedata]
+
+# International Support
+# Eg name: Australia and adjective: Australian
+country:
+  name: UK
+  adjective: UK
+
+# Pages
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+  posts:
+    output: true
+    permalink: /news/:year/:month/:day/:title.html
+  indicators:
+    output: true
+  goals:
+    output: true

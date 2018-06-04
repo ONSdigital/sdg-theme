@@ -2,7 +2,6 @@
 # Don't delete this line.
 ---
 
-{% include_relative chartjs/rescaler.js %}
 {% include_relative event.js %}
 {% include_relative accessibility.js %}
 {% include_relative indicatorDataStore.js %}

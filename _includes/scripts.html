@@ -7,14 +7,14 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/lib/d3-simple-slider.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/plugins/jquery.sdgMap.js"></script>
 <script type="text/javascript"> window.loop11_key = "0104054b3b56d396b42e668dfe096cee161454a8"; </script>
+<script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
 <script src="//cdn.loop11.com/my/loop11.js" type="text/javascript" async="async"></script>
 
-
 <!-- <script src='{{ site.baseurl }}/assets/js/sdg.js?v={{ cache_bust }}'></script> -->
-
+<!--
+<script src="{{site.baseurl}}/assets/js/lib/d3-simple-slider.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/plugins/jquery.sdgMap.js"></script>
 <script src="{{site.baseurl}}/assets/js/chartjs/rescaler.js?v={{ cache_bust }}"></script>
 <script src="{{site.baseurl}}/assets/js/event.js?v={{ cache_bust }}"></script>
 <script src="{{site.baseurl}}/assets/js/accessibility.js?v={{ cache_bust }}"></script>
@@ -26,11 +26,29 @@
 <script src="{{site.baseurl}}/assets/js/search.js?v={{ cache_bust }}"></script>
 <script src="{{site.baseurl}}/assets/js/reportingStatus.js?v={{ cache_bust }}"></script>
 <script src="{{site.baseurl}}/assets/js/menu.js?v={{ cache_bust }}"></script>
+<script src="{{site.baseurl}}/assets/js/lib/classList.js"></script>
+<script src="{{site.baseurl}}/assets/js/lib/modernizr-custom.js"></script>
+-->
+
+{% javascript_asset_tag global %}
+- /assets/js/lib/d3-simple-slider.min.js
+- /assets/js/plugins/jquery.sdgMap.js
+- /assets/js/chartjs/rescaler.js?v={{ cache_bust }}
+- /assets/js/event.js?v={{ cache_bust }}
+- /assets/js/accessibility.js?v={{ cache_bust }}
+- /assets/js/indicatorDataStore.js?v={{ cache_bust }}
+- /assets/js/indicatorModel.js?v={{ cache_bust }}
+- /assets/js/mapView.js?v={{ cache_bust }}
+- /assets/js/indicatorView.js?v={{ cache_bust }}
+- /assets/js/indicatorController.js?v={{ cache_bust }}
+- /assets/js/search.js?v={{ cache_bust }}
+- /assets/js/reportingStatus.js?v={{ cache_bust }}
+- /assets/js/menu.js?v={{ cache_bust }}
+- /assets/js/lib/classList.js
+- /assets/js/lib/modernizr-custom.js
+{% endjavascript_asset_tag %}
 
 
-<script src="{{ site.baseurl }}/assets/js/lib/classList.js"></script>
-<script src="{{ site.baseurl }}/assets/js/lib/modernizr-custom.js"></script>
-<script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {

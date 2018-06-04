@@ -2,14 +2,15 @@
 # Don't delete this line.
 ---
 
-{% include_relative event.js %}
-{% include_relative accessibility.js %}
-{% include_relative indicatorDataStore.js %}
-{% include_relative indicatorModel.js %}
-{% include_relative mapView.js %}
-{% include_relative indicatorView.js %}
-{% include_relative indicatorController.js %}
-{% include_relative search.js %}
-{% include_relative reportingStatus.js %}
-{% include_relative menu.js %}
+{% include chartjs/rescaler.js %}
+{% include event.js %}
+{% include accessibility.js %}
+{% include indicatorDataStore.js %}
+{% include indicatorModel.js %}
+{% include mapView.js %}
+{% include indicatorView.js %}
+{% include indicatorController.js %}
+{% include search.js %}
+{% include reportingStatus.js %}
+{% include menu.js %}
 

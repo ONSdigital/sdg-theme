@@ -1,3 +1,5 @@
+---
+---
 var indicatorView = function (model, options) {
   
   "use strict";

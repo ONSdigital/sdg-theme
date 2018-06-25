@@ -1,0 +1,7 @@
+<ul class="language-toggle">
+{% for language in site.languages %}
+{% if page.language != language %}
+  <li><a href="{{site.baseurl}}/{{ language }}{{page.url | remove: 'index.html'}}">{{ t.global.languages[language] }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>

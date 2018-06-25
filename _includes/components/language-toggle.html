@@ -1,9 +1,30 @@
 <ul class="language-toggle">
+{%- assign default_language = site.languages[0] -%}
 {%- for language in site.languages -%}
   {%- if page.language != language -%}
-    {%- assign url_lang_part = '/' | append: page.language | append: '/' -%}
-    {%- assign url_no_lang = page.url | replace: url_lang_part, '/' -%}
-    <li><a href="{{site.baseurl}}/{{ language }}{{url_no_lang | remove: 'index.html'}}">{{ t.global.languages[language] }}</a></li>
+    {%- assign old_lang_part = '/' | append: page.language | append: '/' -%}
+    {%- assign new_lang_part = '/' | append: language | append: '/' -%}
+    {%- if language == default_language -%}
+      {%- assign new_lang_part = '/' -%}
+    {%- endif -%}
+    {%- assign new_path = page.path | replace: old_lang_part, new_lang_part -%}
+    {%- if page.language == default_language -%}
+      {%- assign new_path = page.path | replace_first: '/', new_lang_part -%}
+    {%- endif -%}
+    {%- assign translation_exists = false %}
+    {%- for document in site.documents %}
+      {%- if document.path == new_path -%}
+        {%- assign translation_exists = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if translation_exists -%}
+      {%- assign new_url = page.url | replace: old_lang_part, new_lang_part -%}
+      {%- if page.language == default_language -%}
+        {%- assign new_url = page.url | replace_first: '/', new_lang_part -%}
+      {%- endif -%}
+      <li><a href="{{site.baseurl}}{{ new_url | remove: 'index.html'}}">{{ t.global.languages[language] }}</a></li>
+    {%- endif -%}
   {%- endif -%}
 {%- endfor -%}
 </ul>

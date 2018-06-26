@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-    {%- comment -%}
-      By assigning "t" here it is available in all other layouts/includes. This
-      is used throughout the site to translate common phrases and words. For
-      avaiable keys, see the sdg-translations Github repository.
-    {%- endcomment -%}
-    {%- assign t = site.data.translations[page.language] -%}
+    {%- include multilingual.html -%}
     <head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <!-- Basic Page Needs

@@ -1,9 +1,18 @@
 <ul class="language-toggle">
 {%- for language in site.languages -%}
-  {%- if page.language != language -%}
-    {%- assign url_lang_part = '/' | append: page.language | append: '/' -%}
-    {%- assign url_no_lang = page.url | replace: url_lang_part, '/' -%}
-    <li><a href="{{site.baseurl}}/{{ language }}{{url_no_lang | remove: 'index.html'}}">{{ t.global.languages[language] }}</a></li>
+  {%- if language != current_language -%}
+    {%- if language == default_language -%}
+      {%- assign new_language_segment = '/' -%}
+    {%- else -%}
+      {%- assign new_language_segment = '/' | append: language | append: '/' -%}
+    {%- endif -%}
+    {%- if current_language == default_language -%}
+      {%- assign old_language_segment = '/' -%}
+    {%- else -%}
+      {%- assign old_language_segment = '/' | append: current_language | append: '/' -%}
+    {%- endif -%}
+    {%- assign new_url = page.url | replace_first: old_langugage_segment, new_language_segment -%}
+    <li><a href="{{site.baseurl}}{{new_url | remove: 'index.html'}}">{{ t.global.languages[language] }}</a></li>
   {%- endif -%}
 {%- endfor -%}
 </ul>

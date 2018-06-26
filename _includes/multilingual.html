@@ -9,8 +9,9 @@
 
 {%- endcomment -%}
 {%- assign default_language = site.languages[0] -%}
-{%- assign current_language = default_language -%}
 {%- if page.language -%}
   {%- assign current_language = page.language -%}
+{%- else -%}
+  {%- assign current_language = default_language -%}
 {%- endif -%}
 {%- assign t = site.data.translations[current_language] -%}

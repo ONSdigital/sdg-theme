@@ -18,8 +18,8 @@
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
-        <li><span data-target="menu">{{ t.header.menu.menu }}</span></li>
-        <li><span data-target="search">{{ t.header.menu.search }}</span></li>
+        <li><span data-target="menu">{{ t.menu.menu }}</span></li>
+        <li><span data-target="search">{{ t.menu.search }}</span></li>
       </ul>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu">
@@ -28,18 +28,18 @@
           <a href="{{ site.baseurl }}/">{{ t.global.goals }}</a>
         </li>
         <li {% if page.permalink=="/reporting-status/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
-          <a href="{{ site.baseurl }}/reporting-status">{{ t.header.menu.reporting_status }}</a>
+          <a href="{{ site.baseurl }}/reporting-status">{{ t.menu.reporting_status }}</a>
         </li>
         <li {% if page.permalink=="/about/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
-          <a href="{{ site.baseurl }}/about">{{ t.header.menu.about }}</a>
+          <a href="{{ site.baseurl }}/about">{{ t.menu.about }}</a>
         <li {% if page.permalink=="/publications/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
-            <a href="{{ site.baseurl }}/publications">{{ t.header.menu.publications }}</a>
+            <a href="{{ site.baseurl }}/publications">{{ t.menu.publications }}</a>
         </li>
         <li {% if page.permalink=="/guidance/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
-          <a href="{{ site.baseurl }}/guidance">{{ t.header.menu.guidance }}</a>
+          <a href="{{ site.baseurl }}/guidance">{{ t.menu.guidance }}</a>
         </li>
         <li {% if page.permalink=="/faq/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
-          <a href="{{ site.baseurl }}/faq">{{ t.header.menu.faq }}</a>
+          <a href="{{ site.baseurl }}/faq">{{ t.menu.faq }}</a>
         </li>
 <!--        <li {% if page.permalink contains "/news" or page.layout=="post" %}class="nav-link active" {% else %}class="nav-link" {%
           endif %}>

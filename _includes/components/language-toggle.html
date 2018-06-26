@@ -12,7 +12,7 @@
       {%- assign old_language_segment = '/' | append: current_language | append: '/' -%}
     {%- endif -%}
     {%- assign new_url = page.url | replace_first: old_language_segment, new_language_segment -%}
-    <li><a href="{{site.baseurl}}{{new_url | remove: 'index.html'}}">{{ t.global.languages[language] }}</a></li>
+    <li><a href="{{site.baseurl}}{{new_url | remove: 'index.html'}}">{{ t.languages[language] }}</a></li>
   {%- endif -%}
 {%- endfor -%}
 </ul>

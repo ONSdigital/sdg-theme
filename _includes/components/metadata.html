@@ -15,7 +15,7 @@
 
             {% if meta[indicator_metadata.name] contains "http" or meta[indicator_metadata.name] contains "mailto" %}
               <a href="{{ meta[indicator_metadata.name] }}" target="_blank">
-                {{ url_text }} <span class="visuallyhidden">opens in a new window</span>
+                {{ url_text }} <span class="visuallyhidden">{{ t.global.opens_new_window }}</span>
               </a>
             {% endif %}
             

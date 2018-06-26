@@ -7,8 +7,8 @@
       </div>
       <div class="variable-options">
         <div>
-          <button data-type="select">{{ t.fields.select_all }}</button>
-          <button data-type="clear">{{ t.fields.clear_all }}</button>
+          <button data-type="select">{{ t.indicator.select_all }}</button>
+          <button data-type="clear">{{ t.indicator.clear_all }}</button>
         </div>
         <% _.each(seriesItem.values, function(item) { %>
           <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
@@ -17,10 +17,10 @@
       
       <% if(allowedFields.indexOf(seriesItem.field) == -1) { %> 
         <div class="variable-hint">
-          {{ t.fields.variable_hint | replace_first: '%var', '<%= _.findWhere(edges, { To: seriesItem.field }).From %>' }}
+          {{ t.indicator.variable_hint | replace_first: '%var', '<%= _.findWhere(edges, { To: seriesItem.field }).From %>' }}
         </div>
         <div class="no-data-hint">
-          {{ t.fields_no_data_hint }}
+          {{ t.indicator.no_data_hint }}
         </div>
       <% }%>
 

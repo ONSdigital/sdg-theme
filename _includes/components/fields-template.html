@@ -17,7 +17,7 @@
       
       <% if(allowedFields.indexOf(seriesItem.field) == -1) { %> 
         <div class="variable-hint">
-          {{ t.indicator.variable_hint | replace_first: '%var', '<%= _.findWhere(edges, { To: seriesItem.field }).From %>' }}
+          {{ t.indicator.variable_hint | replace_first: '%var', "<%= _.findWhere(edges, { To: seriesItem.field }).From %>" }}
         </div>
         <div class="no-data-hint">
           {{ t.indicator.no_data_hint }}

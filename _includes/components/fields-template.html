@@ -20,7 +20,7 @@
           {%- capture var_hint_replacement -%}
             {% raw %}<%= _.findWhere(edges, { To: seriesItem.field }).From %>{% endraw %}
           {%- endcapture -%}
-          {{ t.indicator.variable_hint | replace_first: '%var', var_hint_replacement }}
+          {{ t.indicator.variable_hint | replace_first: '%field', var_hint_replacement }}
         </div>
         <div class="no-data-hint">
           {{ t.indicator.no_data_hint }}

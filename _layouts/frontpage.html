@@ -4,7 +4,7 @@
 
     <h1>{{site.country.name}} {{ t.frontpage.heading }}</h1>
 
-    <p>{{ t.frontpage.instructions | replace_first: '%var', '<span style="display:none" id="jump-to-search"><a href="javascript:void(0)">' | replace_first: '%var', '</a></span>' | replace_first: '%var', site.country.name }}</p>
+    <p>{{ t.frontpage.instructions | replace_first: '%before_link', '<span style="display:none" id="jump-to-search"><a href="javascript:void(0)">' | replace_first: '%after_link', '</a></span>' | replace_first: '%country_name', site.country.name }}</p>
     {% for goal in site.goals %}
         {% cycle 'add row' : '<div class="row no-gutters">', '', '', '', '', '' %}
             <div class="col-xs-4 col-md-2">

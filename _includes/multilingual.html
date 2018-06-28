@@ -19,5 +19,5 @@
 {%- if current_language == default_language -%}
   {%- assign baseurl_folder = '' -%}
 {%- else -%}
-  {%- assign baseurl_folder = current_language | append '/' -%}
+  {%- assign baseurl_folder = current_language | append: '/' -%}
 {%- endif -%}

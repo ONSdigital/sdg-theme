@@ -6,7 +6,7 @@
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="{{ site.baseurl }}/" id="home">
+    <a class="navbar-brand" href="{{ site.baseurl }}{{ baseurl_folder }}/" id="home">
       <img src="{{ site.baseurl }}/assets/img/SDG_logo.png" alt="{{ t.global.sdg }} - {{ t.header.tag_line }}" />
     </a>
 
@@ -25,21 +25,21 @@
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu">
         <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.permalink contains "/about" or page.layout=="post"  or page.permalink contains "/faq"  or page.permalink contains "/publications" or page.permalink contains "/guidance" %}class="nav-link"
           {% else %}class="nav-link active" {% endif %}>
-          <a href="{{ site.baseurl }}/">{{ t.global.goals }}</a>
+          <a href="{{ site.baseurl }}{{ baseurl_folder }}/">{{ t.global.goals }}</a>
         </li>
         <li {% if page.permalink=="/reporting-status/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
-          <a href="{{ site.baseurl }}/reporting-status">{{ t.menu.reporting_status }}</a>
+          <a href="{{ site.baseurl }}{{ baseurl_folder }}/reporting-status">{{ t.menu.reporting_status }}</a>
         </li>
         <li {% if page.permalink=="/about/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
-          <a href="{{ site.baseurl }}/about">{{ t.menu.about }}</a>
+          <a href="{{ site.baseurl }}{{ baseurl_folder }}/about">{{ t.menu.about }}</a>
         <li {% if page.permalink=="/publications/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
-            <a href="{{ site.baseurl }}/publications">{{ t.menu.publications }}</a>
+            <a href="{{ site.baseurl }}{{ baseurl_folder }}/publications">{{ t.menu.publications }}</a>
         </li>
         <li {% if page.permalink=="/guidance/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
-          <a href="{{ site.baseurl }}/guidance">{{ t.menu.guidance }}</a>
+          <a href="{{ site.baseurl }}{{ baseurl_folder }}/guidance">{{ t.menu.guidance }}</a>
         </li>
         <li {% if page.permalink=="/faq/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
-          <a href="{{ site.baseurl }}/faq">{{ t.menu.faq }}</a>
+          <a href="{{ site.baseurl }}{{ baseurl_folder }}/faq">{{ t.menu.faq }}</a>
         </li>
 <!--        <li {% if page.permalink contains "/news" or page.layout=="post" %}class="nav-link active" {% else %}class="nav-link" {%
           endif %}>

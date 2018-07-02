@@ -32,16 +32,16 @@
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
         <a href="{{ goal_uri }}" title="{{ t.indicator.view_indicator_list }}">
-          <img src="{{ site.baseurl }}/assets/img/goals/{{ current_language }}/{{ meta.sdg_goal }}.png" alt="{{ goal.short }} - {{ t.global.goal }} {{ goal.goal }}" />
+          <img src="{{ site.baseurl }}/assets/img/goals/{{ current_language }}/{{ meta.sdg_goal }}.png" alt="{{ goal.short }} - {{ t.general.goal }} {{ goal.goal }}" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
           <a href="{{ goal_uri }}">
-            <span class="hidden-sm hidden-md hidden-lg">{{ t.global.goal }} {{meta.sdg_goal}}: </span>{{ meta.title }}
+            <span class="hidden-sm hidden-md hidden-lg">{{ t.general.goal }} {{meta.sdg_goal}}: </span>{{ meta.title }}
           </a>
         </h1>
-        <h2>{{ t.global.indicator }} {{ meta.indicator }}: {{ meta.title }}</h2>
+        <h2>{{ t.general.indicator }} {{ meta.indicator }}: {{ meta.title }}</h2>
       </div>
     </div>
   </div>

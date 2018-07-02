@@ -10,7 +10,7 @@
 <script type="text/template" class="results">
 
   <% if(resultsCount) { %>
-    <p><%= resultsCount %> indicator<% if(resultsCount != 1) { %>s<% } %> {{ t.search.found_in }} <%= searchResults.length %> {{ t.global.goal | downcase }}<% if(searchResults.length != 1) { %>s<% } %></p>
+    <p><%= resultsCount %> indicator<% if(resultsCount != 1) { %>s<% } %> {{ t.search.found_in }} <%= searchResults.length %> {{ t.general.goal | downcase }}<% if(searchResults.length != 1) { %>s<% } %></p>
 
     <% _.each(searchResults, function(goal){ %>
       <div class="row">

@@ -1,17 +1,17 @@
 {% include head.html %}
 {% include header.html %}
 {% assign goal_number = page.sdg_goal %}
-{% assign goal = t.un_goals[goal_number] %}
+{% assign goal = t.global_goals[goal_number] %}
 
 <div class="heading goal-{{page.sdg_goal}}">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
-        <img src="{{ site.baseurl }}/assets/img/goals/{{ current_language }}/{{ goal_number }}.png" alt="{{ goal.short }} - {{ t.global.goal }} {{ goal_number }}" />
+        <img src="{{ site.baseurl }}/assets/img/goals/{{ current_language }}/{{ goal_number }}.png" alt="{{ goal.short }} - {{ t.general.goal }} {{ goal_number }}" />
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
-          <span class="hidden-sm hidden-md hidden-lg">{{ t.global.goal }} {{ goal_number }}: </span>{{ goal.title }}
+          <span class="hidden-sm hidden-md hidden-lg">{{ t.general.goal }} {{ goal_number }}: </span>{{ goal.title }}
         </h1>
       </div>
     </div>

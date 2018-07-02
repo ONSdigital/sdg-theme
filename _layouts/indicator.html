@@ -26,6 +26,8 @@
 {% assign sdg_indicator_data = site.data[dataset_name] %}
 {% assign indicator_metadata = sdg_indicators | where: "indicator_id", meta.indicator | first %}
 {% assign json_data = sdg_indicator_data | jsonify %}
+{%- assign indicator_number = meta.indicator -%}
+{%- assign translated_indicator = t.global_indicators[indicator_number] -%}
 
 <div class="heading indicator goal-{{meta.sdg_goal}}">
   <div class="container">
@@ -38,10 +40,10 @@
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
           <a href="{{ goal_uri }}">
-            <span class="hidden-sm hidden-md hidden-lg">{{ t.general.goal }} {{meta.sdg_goal}}: </span>{{ meta.title }}
+            <span class="hidden-sm hidden-md hidden-lg">{{ t.general.goal }} {{meta.sdg_goal}}: </span>{{ translated_indicator.title }}
           </a>
         </h1>
-        <h2>{{ t.general.indicator }} {{ meta.indicator }}: {{ meta.title }}</h2>
+        <h2>{{ t.general.indicator }} {{ indicator_number }}: {{ translated_indicator.title }}</h2>
       </div>
     </div>
   </div>

@@ -12,7 +12,7 @@
 
   <div class='hidden visible-xs float-right'>
     <ul id='accessibility-nav' class='contrast-switcher'></ul>
-    {% include components/language-toggle.html %}
+      {% include components/language-toggle.html %}
   </div>
 
     <nav class="navbar navbar-default" id="main-nav">
@@ -45,8 +45,10 @@
           endif %}>
           <a href="{{ site.baseurl }}/news">News &amp; Events</a>
         </li> -->
+        <li>
+        {% include components/language-toggle.html %}
+        </li>
       </ul>
-
 
     </nav>
   </div>

@@ -1,4 +1,10 @@
-<ul class="language-toggle">
+<a href="#" class="language-toggle" onclick="$('.language-toggle-selector').toggle(); return false;">
+  <i class="fa fa-globe"></i>
+  {{ t.languages[current_language] }}
+  <i class="language-toggle-selector fa fa-chevron-down"></i>
+  <i class="language-toggle-selector fa fa-chevron-up" style="display:none;"></i>
+  </a>
+<ul class="language-options language-toggle-selector">
 {%- for language in site.languages -%}
   {%- if language != current_language -%}
     {%- if language == default_language -%}
@@ -15,4 +21,4 @@
     <li><a href="{{site.baseurl}}{{new_url | remove: 'index.html'}}">{{ t.languages[language] }}</a></li>
   {%- endif -%}
 {%- endfor -%}
-</ul>
+  </ul>

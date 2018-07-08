@@ -3,7 +3,7 @@
   {{ t.languages[current_language] }}
   <i class="language-toggle-selector fa fa-chevron-down"></i>
   <i class="language-toggle-selector fa fa-chevron-up" style="display:none;"></i>
-  </a>
+</a>
 <ul class="language-options language-toggle-selector">
 {%- for language in site.languages -%}
   {%- if language != current_language -%}
@@ -21,4 +21,4 @@
     <li><a href="{{site.baseurl}}{{new_url | remove: 'index.html'}}">{{ t.languages[language] }}</a></li>
   {%- endif -%}
 {%- endfor -%}
-  </ul>
+</ul>

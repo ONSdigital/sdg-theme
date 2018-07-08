@@ -152,13 +152,13 @@ header {
   @include indicatorcards;
 
   .indicator-cards {
-    a { 
+    a {
       padding-left: 0;
       padding-top: 0;
       padding-bottom: 3.2em;
     }
   }
-  
+
   .match {
     display: inline;
   }
@@ -1131,20 +1131,20 @@ h5 + .btn-download {
     fill: #e5f3ff;
     pointer-events: all;
   }
-  
+
   .map-layer {
     fill: #fff;
     stroke: #aaa;
   }
 
   .tooltip {
-    color: #222; 
-    background: #fff; 
-    border-radius: 3px; 
-    box-shadow: 0px 0px 2px 0px #a6a6a6; 
-    padding: .2em; 
+    color: #222;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 0px 2px 0px #a6a6a6;
+    padding: .2em;
     text-shadow: #f5f5f5 0 1px 0;
-    opacity: 0.9; 
+    opacity: 0.9;
     position: absolute;
     min-width: 180px;
 
@@ -1167,8 +1167,8 @@ h5 + .btn-download {
     position: absolute;
     top: 12px;
     right: 12px;
-  
-    a { 
+
+    a {
       background-color: white;
       border: none;
       text-indent: -9999px;
@@ -1244,7 +1244,7 @@ h5 + .btn-download {
       width: 100%;
     }
   }
-  
+
   /*
       /MAP STUFF
   */
@@ -1513,7 +1513,7 @@ footer {
 }
 
 .language-options {
-    display: none;
+  display: none;
   position: absolute;
   z-index: 999;
   left: 15px;
@@ -1524,7 +1524,7 @@ footer {
   padding: .2em;
   text-shadow: #f5f5f5 0 1px 0;
   min-width: 100px;
-  }
+}
 
 #accessibility-nav {
   width: 25%;

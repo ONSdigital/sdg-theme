@@ -1521,12 +1521,27 @@ footer {
   background: #fff;
   border-radius: 3px;
   box-shadow: 0px 0px 2px 0px #a6a6a6;
-  padding: .2em;
+  padding: .2em 1em .2em .2em;
   text-shadow: #f5f5f5 0 1px 0;
-  min-width: 100px;
 }
 .language-toggle-mobile {
   position: relative;
+  clear: right;
+  right: 15px;
+  float: right;
+  a {
+    text-transform: uppercase;
+  }
+}
+.contrast-high {
+  .language-toggle-mobile, ul.navbar-nav {
+    .language-options a {
+      color: black;
+      &:hover {
+        color: black;
+      }
+    }
+  }
 }
 
 #accessibility-nav {

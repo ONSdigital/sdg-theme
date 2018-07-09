@@ -42,7 +42,8 @@
 
   <h2>Status by Goal</h2>
 
-      {% for goal in site.goals %}
+      {%- assign goals = site.goals | where: 'language', current_language -%}
+      {% for goal in goals %}
         {% assign goal_indicators = site.data.meta | where: 'sdg_goal', goal.sdg_goal %}
         {% assign goal_indicator_count = goal_indicators | size %}
         {% assign exploring_count = goal_indicators | where: 'reporting_status', 'notstarted' | size %}

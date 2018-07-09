@@ -102,7 +102,7 @@ indicatorSearch.prototype = {
 
 $(function() {
 
-  $('#main-nav').append('<div id="search" class="menu-target"><label for="indicator_search"><i class="fa fa-search" aria-hidden="true"></i><span>Search:</span></label><input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="{{ site.baseurl }}/indicators.json" data-pageurl="{{ site.baseurl }}/search/?" /></div>');
+  $('#main-nav').append('<div id="search" class="menu-target"><label for="indicator_search"><i class="fa fa-search" aria-hidden="true"></i><span>Search:</span></label><input id="indicator_search" title="' + translations.search.indicator_search + '" placeholder="' + translations.search.indicator_search + '" data-url="{{ site.baseurl }}/indicators.json" data-pageurl="{{ site.baseurl }}/search/?" /></div>');
   var $el = $('#indicator_search');
   new indicatorSearch($el, new indicatorDataStore($el.data('url')));
 

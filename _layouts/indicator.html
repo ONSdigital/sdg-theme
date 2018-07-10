@@ -11,8 +11,10 @@
 {%- endif -%}
 {% assign headline = site.data.headline[indicator_id] %}
 
-{% assign goal = site.goals | where: "sdg_goal", meta.sdg_goal | first %}
-{% capture goal_uri %}{{ site.baseurl }}/{{ goal.short | slugify }}{% endcapture %}
+{%- assign goal_number = meta.sdg_goal | downcase -%}
+{%- assign goal = site.data.translations[default_language].global_goals[goal_number] -%}
+{%- assign translated_goal = t.global_goals[goal_number] -%}
+{% capture goal_uri %}{{ site.baseurl }}{{ baseurl_folder }}/{{ goal.short | slugify }}{% endcapture %}
 
 {% if meta.reporting_status != "complete" or meta.data_non_statistical == true %}
   {% assign show_data = false %}
@@ -21,7 +23,6 @@
 {% endif %}
 
 {% capture goal_href %}{{ goal_uri }}{% endcapture %}
-{% capture goal_number %}{{ goal.goal }}{% endcapture %}
 {% capture goal_title %}{{ goal.title }}{% endcapture %}
 {% capture indicator_title %}{{ meta.title }}{% endcapture %}
 
@@ -33,18 +34,18 @@
 {%- assign indicator_number = meta.indicator -%}
 {%- assign translated_indicator = t.global_indicators[indicator_number] -%}
 
-<div class="heading indicator goal-{{meta.sdg_goal}}">
+<div class="heading indicator goal-{{ goal_number }}">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
         <a href="{{ goal_uri }}" title="{{ t.indicator.view_indicator_list }}">
-          <img src="{{ site.baseurl }}/assets/img/goals/{{ current_language }}/{{ meta.sdg_goal }}.png" alt="{{ goal.short }} - {{ t.general.goal }} {{ goal.goal }}" />
+          <img src="{{ site.baseurl }}/assets/img/goals/{{ current_language }}/{{ goal_number }}.png" alt="{{ translated_goal.short }} - {{ t.general.goal }} {{ goal_number }}" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
           <a href="{{ goal_uri }}">
-            <span class="hidden-sm hidden-md hidden-lg">{{ t.general.goal }} {{meta.sdg_goal}}: </span>{{ translated_indicator.title }}
+            <span class="hidden-sm hidden-md hidden-lg">{{ t.general.goal }} {{ goal_number }}: </span>{{ translated_indicator.title }}
           </a>
         </h1>
         <h2>{{ t.general.indicator }} {{ indicator_number }}: {{ translated_indicator.title }}</h2>
@@ -53,7 +54,7 @@
   </div>
 </div>
 
-<div id="main-content" class="container goal-{{meta.sdg_goal}}">
+<div id="main-content" class="container goal-{{ goal_number }}">
   {% include components/breadcrumb.html %}
   
   <div class="row" id="page-content-row">

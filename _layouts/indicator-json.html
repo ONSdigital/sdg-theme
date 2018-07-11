@@ -1,7 +1,7 @@
 {%- include multilingual.html -%}
 [
   {%- assign goals = site.goals | where: 'language', current_language -%}
-  {% for goal in goals %}
+  {%- for goal in goals -%}
   {%- assign goal_number = goal.sdg_goal | downcase -%}
   {%- assign translated_goal = t.global_goals[goal_number] -%}
   {
@@ -13,23 +13,24 @@
         {%- if all_meta[current_language] -%}
           {%- assign all_meta = all_meta[current_language] -%}
         {%- endif -%}
-        {% assign indicators = all_meta | where:'sdg_goal', goal_number %}
-        {% for indicator in indicators %}
-        {% capture indicator_id %}{{indicator.indicator | slugify}}{% endcapture %}
-        {% assign meta = all_meta[indicator_id] %}
+        {%- assign indicators = all_meta | where:'sdg_goal', goal_number -%}
+        {%- for indicator in indicators -%}
+        {%- capture indicator_id -%}{{indicator.indicator | slugify}}{%- endcapture -%}
+        {%- assign meta = all_meta[indicator_id] -%}
+        {%- assign translated_meta = t.global_indicators[indicator.indicator] -%}
         {
           "id": "{{indicator_id}}",
-          "title": "{{meta.title | strip_newlines | strip}}",
+          "title": "{{translated_meta.title | strip_newlines | strip}}",
           "description": "{{meta.national_indicator_description | strip_newlines | strip }}",
           "keywords": "{{meta.data_keywords}}",
-          "href": "{{ site.baseurl }}/{{ indicator_id }}",
+          "href": "{{ site.baseurl }}{{ baseurl_folder }}/{{ indicator_id }}",
           "status": "{{meta.reporting_status}}"
         }
-        {% if forloop.last %}{% else %},{% endif %}
-        {% endfor %}
+        {%- if forloop.last -%}{%- else -%},{%- endif -%}
+        {%- endfor -%}
       ]
     }
   }
-  {% if forloop.last %}{% else %},{% endif %}
-  {% endfor %}
+  {%- if forloop.last -%}{%- else -%},{%- endif -%}
+  {%- endfor -%}
 ]

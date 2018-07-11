@@ -30,7 +30,7 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
   };
 
   if($('#main-content').hasClass('search-results')) {
-        
+
     var results = [],
         that = this,
         searchString = unescape(location.search.substring(1));
@@ -40,7 +40,7 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
 
     $('#main-content h1 span').text(searchString);
     $('#main-content h1').show();
-  
+
     this.indicatorDataStore.getData().then(function(data) {
 
       that.processData(data);
@@ -54,7 +54,7 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
       // goal
       //    indicators
       // goal
-      //    indicators    
+      //    indicators
 
       _.each(searchResults, function(result) {
         var goal = _.findWhere(results, { goalId: result.goalId }),

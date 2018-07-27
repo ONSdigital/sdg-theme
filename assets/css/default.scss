@@ -1579,6 +1579,7 @@ footer {
     }
 
     &.contrast-default {
+      display: none;
       background: white;
       a {
         color: black;
@@ -1586,6 +1587,7 @@ footer {
     }
 
     &.contrast-high {
+      display: block;
       background: black;
       a {
         color: yellow;
@@ -1597,6 +1599,19 @@ footer {
 
 /* example stuff */
 body.contrast-high {
+
+  #accessibility-nav {
+    li {
+      &.contrast-default {
+        display: block;
+      }
+
+      &.contrast-high {
+        display: none;
+      }
+    }
+  }
+
   background-color: black;
   .table {
     background: black;

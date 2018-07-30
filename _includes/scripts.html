@@ -10,23 +10,7 @@
 <script type="text/javascript"> window.loop11_key = "0104054b3b56d396b42e668dfe096cee161454a8"; </script>
 <script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
 <script src="//cdn.loop11.com/my/loop11.js" type="text/javascript" async="async"></script>
-<!-- <script src='{{ site.baseurl }}/assets/js/sdg.js?v={{ cache_bust }}'></script> -->
-
-<script src="{{site.baseurl}}/assets/js/lib/d3-simple-slider.min.js"></script>
-<script src="{{site.baseurl}}/assets/js/plugins/jquery.sdgMap.js"></script>
-<script src="{{site.baseurl}}/assets/js/chartjs/rescaler.js?v={{ cache_bust }}"></script>
-<script src="{{site.baseurl}}/assets/js/event.js?v={{ cache_bust }}"></script>
-<script src="{{site.baseurl}}/assets/js/accessibility.js?v={{ cache_bust }}"></script>
-<script src="{{site.baseurl}}/assets/js/indicatorDataStore.js?v={{ cache_bust }}"></script>
-<script src="{{site.baseurl}}/assets/js/indicatorModel.js?v={{ cache_bust }}"></script>
-<script src="{{site.baseurl}}/assets/js/mapView.js?v={{ cache_bust }}"></script>
-<script src="{{site.baseurl}}/assets/js/indicatorView.js?v={{ cache_bust }}"></script>
-<script src="{{site.baseurl}}/assets/js/indicatorController.js?v={{ cache_bust }}"></script>
-<script src="{{site.baseurl}}/assets/js/search.js?v={{ cache_bust }}"></script>
-<script src="{{site.baseurl}}/assets/js/reportingStatus.js?v={{ cache_bust }}"></script>
-<script src="{{site.baseurl}}/assets/js/menu.js?v={{ cache_bust }}"></script>
-<script src="{{site.baseurl}}/assets/js/lib/classList.js"></script>
-<script src="{{site.baseurl}}/assets/js/lib/modernizr-custom.js"></script>
+<script src='{{ site.baseurl }}/assets/js/sdg.js?v={{ cache_bust }}'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -36,9 +20,9 @@ $(function() {
           $(obj).append($('<img />').attr('src', $(obj).data('img')));
       });
 
-      $.ajax({ 
-        url: '{{ site.remotedatabaseurl }}/comb/' + domData.id + '.json', 
-        success: function(res) { 
+      $.ajax({
+        url: '{{ site.remotedatabaseurl }}/comb/' + domData.id + '.json',
+        success: function(res) {
 
           $('.async-loading').remove();
           $('.async-loaded').show();

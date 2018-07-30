@@ -1,5 +1,3 @@
----
----
 var indicatorSearch = function(inputElement, indicatorDataStore) {
   that = this;
   this.inputElement = inputElement;

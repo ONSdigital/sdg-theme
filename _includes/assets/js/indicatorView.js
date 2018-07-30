@@ -1,5 +1,3 @@
----
----
 var indicatorView = function (model, options) {
 
   "use strict";
@@ -521,7 +519,7 @@ var indicatorView = function (model, options) {
       var id = indicatorId.replace('indicator', '');
       $(el).append($('<a />').text(translations.indicator.download_headline)
       .attr({
-        'href': '{{ site.remotedatabaseurl }}/headline/' + id + '.csv',
+        'href': remoteDataBaseUrl + '/headline/' + id + '.csv',
         'download': headlineId + '.csv',
         'title': translations.indicator.download_headline_title,
         'class': 'btn btn-primary btn-download',
@@ -533,7 +531,7 @@ var indicatorView = function (model, options) {
   this.createSourceButton = function(indicatorId, el) {
     $(el).append($('<a />').text(translations.indicator.download_source)
     .attr({
-      'href': '{{ site.remotedatabaseurl }}/data/' + indicatorId + '.csv',
+      'href': remoteDataBaseUrl + '/data/' + indicatorId + '.csv',
       'download': indicatorId + '.csv',
       'title': translations.indicator.download_source_title,
       'class': 'btn btn-primary btn-download',

@@ -122,9 +122,15 @@
               <div id="selectionsTable"></div>
             </div>
             <div role="tabpanel" class="tab-pane" id="mapview" class="map">
+              {% if meta.embedded_map_html %}
+                <div>
+                  {{ meta.embedded_map_html }}
+                </div>
+              {% else %}
               <div id="map">
                 <img src="{{ site.baseurl }}/assets/img/loading.gif" alt="{{ t.indicator.loading_map }}" />
               </div>
+              {% endif %}
             </div>
           </div>
         </div> 

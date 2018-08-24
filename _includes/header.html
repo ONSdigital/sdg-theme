@@ -50,10 +50,10 @@
         <li {% if page.permalink=="/faq/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
           <a href="{{ site.baseurl }}{{ baseurl_folder }}/faq">{{ t.menu.faq }}</a>
         </li>
+        {%- endif -%}
         <li>
           {% include components/language-toggle.html %}
         </li>
-        {%- endif -%}
       </ul>
 
       {% include search.html %}

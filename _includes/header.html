@@ -25,6 +25,13 @@
       </ul>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu">
+        {%- if site.menu -%}
+          {%- for item in site.menu -%}
+          <li class="nav-link {% if page.permalink == item.permalink %}active{% endif %}">
+            <a href="{{ site.baseurl }}{{ baseurl_folder }}{{ item.permalink }}">{{ t.menu[item.translation_key] }}</a>
+          </li>
+          {%- endfor -%}
+        {%- else -%}
         <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.permalink contains "/about" or page.layout=="post"  or page.permalink contains "/faq"  or page.permalink contains "/publications" or page.permalink contains "/guidance" %}class="nav-link"
           {% else %}class="nav-link active" {% endif %}>
           <a href="{{ site.baseurl }}{{ baseurl_folder }}/">{{ t.general.goals }}</a>
@@ -43,13 +50,10 @@
         <li {% if page.permalink=="/faq/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
           <a href="{{ site.baseurl }}{{ baseurl_folder }}/faq">{{ t.menu.faq }}</a>
         </li>
-<!--        <li {% if page.permalink contains "/news" or page.layout=="post" %}class="nav-link active" {% else %}class="nav-link" {%
-          endif %}>
-          <a href="{{ site.baseurl }}/news">News &amp; Events</a>
-        </li> -->
         <li>
           {% include components/language-toggle.html %}
         </li>
+        {%- endif -%}
       </ul>
 
       {% include search.html %}

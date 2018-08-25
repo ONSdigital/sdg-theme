@@ -385,11 +385,16 @@ var indicatorView = function (model, options) {
         }
 
         // TODO Merge this with the that.footerFields object used by table
-        var graphFooterItems = [
-          translations.indicator.source + ': ' + (that._model.dataSource ? that._model.dataSource : ''),
-          translations.indicator.geographical_area + ': ' + (that._model.geographicalArea ? that._model.geographicalArea : ''),
-          translations.indicator.unit_of_measurement + ': ' + (that._model.measurementUnit ? that._model.measurementUnit : '')
-        ];
+        var graphFooterItems = [];
+        if (that._model.dataSource) {
+          graphFooterItems.push(translations.indicator.source + ': ' + that._model.dataSource);
+        }
+        if (that._model.geographicalArea) {
+          graphFooterItems.push(translations.indicator.geographical_area + ': ' + that._model.geographicalArea);
+        }
+        if (that._model.measurementUnit) {
+          graphFooterItems.push(translations.indicator.unit_of_measurement + ': ' + that._model.measurementUnit);
+        }
 
         if(that._model.footnote) {
           var footnoteRows = getLinesFromText('Footnote: ' + that._model.footnote);

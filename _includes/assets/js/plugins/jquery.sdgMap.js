@@ -5,7 +5,10 @@
     defaults = {
       serviceUrl: 'https://geoportal1-ons.opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson',
       width: 590,
-      height: 590
+      height: 590,
+      nameProperty: 'lad16nm',
+      idProperty: 'lad16cd',
+      projectionFunc: d3.geoMercator,
     };
 
   function Plugin(element, options) {
@@ -24,14 +27,14 @@
     this.currentYear = this.years[0];
 
     this.noValueFillColor = '#f0f0f0';
-    
+
     this.init();
   }
 
   Plugin.prototype = {
     init: function() {
       var centered, projection, path,
-        g, effectLayer, resetButton, 
+        g, effectLayer, resetButton,
         tooltip, slider, infoPanel,
         zoomControls,
         that = this,
@@ -51,22 +54,16 @@
           return showError.call(that);
         }
 
-        // if(that.options.geoCodeRegEx) {
-        //   mapData.features = _.filter(mapData.features, function(f) {
-        //     return f.properties.lad16cd.match(that.options.geoCodeRegEx);
-        //   });
-        // }
-
         var features = mapData.features;
 
         initialiseUI.call(that);
 
-        projection = d3.geoMercator().fitSize([width, height], mapData);
+        projection = that.options.projectionFunc().fitSize([width, height], mapData);
         path = d3.geoPath().projection(projection);
 
         // Draw each geographical area as a path
         that.mapLayer.selectAll('path')
-          .data(features)       
+          .data(features)
           .enter().append('path')
           .attr('d', path)
           .attr('vector-effect', 'non-scaling-stroke')
@@ -78,7 +75,7 @@
           .on('click', clicked.bind(that));
 
         appendScale.call(that);
-        
+
       });
 
       function initialiseUI() {
@@ -134,24 +131,10 @@
 
         infoPanel = $('<div />').attr('id', 'infoPanel');
         $(this.element).append(infoPanel);
-
-        /*
-        zoomControls = $('<div />').attr('id', 'zoom');
-        zoomControls.append($('<a />').attr({ 
-          'id': 'zoom-in',
-          'href': '#'
-        }).html('+'));
-        zoomControls.append($('<a />').attr({ 
-          'id': 'zoom-out',
-          'href': '#'
-        }).html('-'));
-
-        $(this.element).append(zoomControls);
-        */
       }
 
       function appendScale() {
-        var key = d3.select(this.element).append("svg").attr("id", "key").attr("width", this.options.width).attr("height", 40);  
+        var key = d3.select(this.element).append("svg").attr("id", "key").attr("width", this.options.width).attr("height", 40);
 
         var length = 5;
         var color = d3.scaleLinear().domain([0, length - 1]).range(this.colorRange);
@@ -173,7 +156,7 @@
             .attr('font-size', 13)
             .html(Math.floor(value(i)));
         }
-      } 
+      }
 
       function showError() {
         $(this.element).html(
@@ -184,13 +167,13 @@
 
       // Get area name
       function getName(d){
-        return d && d.properties ? d.properties.lad16nm : null;
+        return d && d.properties ? d.properties[that.options.nameProperty] : null;
       }
 
-      // Get 
+      // Get
       function getValue(d) {
-        var geoDataItem = _.findWhere(this.options.geoData, { 
-          GeoCode: d.properties.lad16cd,
+        var geoDataItem = _.findWhere(this.options.geoData, {
+          GeoCode: d.properties[this.options.idProperty],
           Year: +this.currentYear
         });
 
@@ -198,8 +181,8 @@
       }
 
       function getYearValues(d) {
-        return _.where(this.options.geoData, { 
-          GeoCode: d.properties.lad16cd
+        return _.where(this.options.geoData, {
+          GeoCode: d.properties[this.options.idProperty]
         });
       }
 
@@ -223,12 +206,12 @@
         var yearValues = getYearValues.call(this, d),
           isInScope = this.isInScope(d),
           content = '<h2>' + getName(d) + '</h2>';
-        
+
         if(yearValues.length) {
           content += '<table><tr>' +
-            _.map(_.pluck(yearValues, 'Year'), function(year) { return '<th>' + year + '</th>'; }).join('') + 
-            '</tr><tr>' + 
-            _.map(_.pluck(yearValues, 'Value'), function(value) { return '<td>' + value + '</td>'; }).join('') + 
+            _.map(_.pluck(yearValues, 'Year'), function(year) { return '<th>' + year + '</th>'; }).join('') +
+            '</tr><tr>' +
+            _.map(_.pluck(yearValues, 'Value'), function(value) { return '<td>' + value + '</td>'; }).join('') +
             '</tr></table>';
         } else {
           if(!isInScope) {
@@ -254,7 +237,7 @@
       function clicked(d) {
         var x, y, k;
 
-        if(!this.isInScope(d)) {
+        if(!that.isInScope(d)) {
           return;
         }
 
@@ -285,8 +268,8 @@
         // Highlight the clicked area
         this.mapLayer
           .selectAll('path')
-          .style('stroke', function(d) { 
-            return centered && d === centered ? '#000' : '#ccc'; 
+          .style('stroke', function(d) {
+            return centered && d === centered ? '#000' : '#ccc';
           })
           .attr('class', function(d) {
             return centered && d === centered ? 'selected' : '';
@@ -299,12 +282,12 @@
       }
 
       function mouseover(d){
-        // ensure that this element doesn't go after a selected element, if any:  
+        // ensure that this element doesn't go after a selected element, if any:
         var selected = d3.select('path.selected').node();
 
         if(selected) {
           d3.select(this.parentNode.insertBefore(this, selected)).style('stroke', '#000');
-          
+
         } else {
           d3.select(this.parentNode.appendChild(this))
             .style('stroke', '#000');
@@ -329,8 +312,8 @@
       }
     },
     isInScope: function(d) {
-      return d === null ? true : d.properties.lad16cd.match(this.options.geoCodeRegEx);
-    }  
+      return d === null ? true : d.properties[this.options.idProperty].match(this.options.geoCodeRegEx);
+    }
   };
 
   // A really lightweight plugin wrapper around the constructor,

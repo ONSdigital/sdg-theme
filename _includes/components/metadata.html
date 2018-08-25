@@ -1,5 +1,8 @@
 <table class="table table-hover">
   {% for indicator_metadata in site.data.schema %}
+    {%- unless meta[indicator_metadata.name] -%}
+      {%- continue -%}
+    {%- endunless -%}
     {%- if t.metadata_fields[indicator_metadata.name] -%}
       {%- assign metadata_label = t.metadata_fields[indicator_metadata.name] -%}
     {%- else -%}
@@ -23,7 +26,7 @@
                 {{ url_text }} <span class="visuallyhidden">{{ t.general.opens_new_window }}</span>
               </a>
             {% endif %}
-            
+
           {% else %}
             {{ meta[indicator_metadata.name] }}
           {% endif %}

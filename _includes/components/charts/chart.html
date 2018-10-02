@@ -1,4 +1,4 @@
-{% if meta.graph_type == 'bar' or meta.graph_type == 'line' %}
+{% if meta.graph_type %}
     {% assign graph_type = meta.graph_type %}
     {% if meta.graph_type == 'longitudinal' %}
         {% assign graph_type = 'line' %}
@@ -14,6 +14,6 @@
     </div>
     <div id="plotLegend"></div>
 
-    <div id="chartSelectionDownload"></div>    
-    
+    <div id="chartSelectionDownload"></div>
+
 {% endif %}

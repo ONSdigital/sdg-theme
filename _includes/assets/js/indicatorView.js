@@ -269,7 +269,7 @@ var indicatorView = function (model, options) {
 
     var that = this;
 
-    this._chartInstance = new Chart($(this._rootElement).find('canvas'), {
+    var chartConfig = {
       type: this._model.graphType,
       data: chartInfo,
       options: {
@@ -332,7 +332,12 @@ var indicatorView = function (model, options) {
           scaler: {}
         }
       }
-    });
+    };
+    if (typeof chartConfigOverrides !== 'undefined') {
+      $.extend(true, chartConfig, chartConfigOverrides);
+    }
+
+    this._chartInstance = new Chart($(this._rootElement).find('canvas'), chartConfig);
 
     Chart.pluginService.register({
       afterDraw: function(chart) {

@@ -67,7 +67,7 @@ plugins:
   - jekyll-remote-theme
 
 # Tell the Remote Theme plugin to use this project!
-remote_theme: ONSDigital/sdg-reporting
+remote_theme: ONSDigital/sdg-theme
 
 # Load any number of custom CSS files.
 custom_css:
@@ -76,7 +76,7 @@ custom_css:
 
 ## Working with (remote) Jekyll themes
 
-This project (the repository you are reading currently) functions as a [Jekyll theme](https://jekyllrb.com/docs/themes/), which can most easily be used with the help of the [Remote Theme plugin](https://github.com/benbalter/jekyll-remote-theme). As with any Jekyll theme (and as can be seen in the [folder structure of this project](https://github.com/ONSDigital/sdg-reporting)) the entirety of the theme is contained in these 3 folders:
+This project (the repository you are reading currently) functions as a [Jekyll theme](https://jekyllrb.com/docs/themes/), which can most easily be used with the help of the [Remote Theme plugin](https://github.com/benbalter/jekyll-remote-theme). As with any Jekyll theme (and as can be seen in the [folder structure of this project](https://github.com/ONSDigital/sdg-theme)) the entirety of the theme is contained in these 3 folders:
 
 1. _includes
 1. _layouts

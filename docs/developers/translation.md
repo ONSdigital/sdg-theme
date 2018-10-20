@@ -1,4 +1,4 @@
-# SDGRP - Translation
+# Translation
 
 This platform is designed to be multilingual, and leverages the translations being maintained in [a separate repository](https://github.com/OpenDataEnterprise/sdg-translations). This document provides an overview of how the platform accomplishes this, and how it can be extended.
 

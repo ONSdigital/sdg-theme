@@ -1,4 +1,4 @@
-# Sustainable Development Goals - Reporting Platform
+# Sustainable Development Goals - Platform documentation
 
 ## Overview
 

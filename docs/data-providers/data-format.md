@@ -1,4 +1,4 @@
-# How the Data Format Works
+# Data format
 
 These guidelines are for anyone wishing to supply a data set for an SDG indicator.
 

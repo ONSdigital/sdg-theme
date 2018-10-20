@@ -1,4 +1,4 @@
-# SDGRP - Forking
+# Forking
 
 Two separate repositories are needed to have a working implementation of this platform. In order to help you get started quickly, there are "starter" repositories available for easy forking:
 

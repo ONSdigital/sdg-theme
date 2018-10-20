@@ -1,4 +1,4 @@
-# SDGRP - Deployment
+# Deployment
 
 ## Run-time vs. Build-time
 

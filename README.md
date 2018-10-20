@@ -1,4 +1,4 @@
-# Sustainable Development Goals (SDG) Reporting Platform
+# Sustainable Development Goals (SDG) - Theme
 
 This is a platform for collecting and disseminating data for the Sustainable Development Goal global indicators.
 

@@ -1,4 +1,4 @@
-# SDGRP - Data Providers
+# SDG Platform documentation - Data Providers
 
 This document is intended for data providers who will be tasked with gathering, entering and maintaining the data and metadata for the platform.
 

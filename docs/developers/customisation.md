@@ -1,4 +1,4 @@
-# SDGRP - Customisation
+# Customisation
 
 Prior to getting started with customising the platform, you should have already forked a "starter" repository, and renamed it to something like `sdg-indicators-sweden` (for example). If you have not done this yet, [start here](forking.md). In this documentation we will refer to this as the "site repository".
 

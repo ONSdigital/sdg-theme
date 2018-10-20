@@ -1,4 +1,4 @@
-# SDGRP - Developers
+# SDG Platform documentation - Developers
 
 This document is intended for developers, to give an overview of what is involved in implementing the SDG reporting platform.
 

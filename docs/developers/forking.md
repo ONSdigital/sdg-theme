@@ -2,11 +2,11 @@
 
 Two separate repositories are needed to have a working implementation of this platform. In order to help you get started quickly, there are "starter" repositories available for easy forking:
 
-1. [sdg-indicators-starter](https://github.com/ONSDigital/sdg-indicators-starter)
+1. [sdg-indicators-starter](https://github.com/OpenDataEnterprise/sdg-indicators-starter)
     * Contains specific configuration and content for your platform (pages, documents, menus, etc.)
     * Powered by [Jekyll](https://jekyllrb.com)
     * Will be referred to in this documentation as the "site repository"
-2. [sdg-data-starter](https://github.com/ONSDigital/sdg-data-starter)
+2. [sdg-data-starter](https://github.com/OpenDataEnterprise/sdg-data-starter)
     * Contains the SDG indicator data and metadata for your platform
         * Data is stored in CSV files
         * Metadata is stored in YAML files

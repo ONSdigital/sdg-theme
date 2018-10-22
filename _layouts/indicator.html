@@ -59,9 +59,7 @@
 
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
-      <div id="page-content">
-        {{ meta.page_content | markdownify }}
-      </div>
+      {% include components/indicator-content.html %}
     </div>
   </div>
 

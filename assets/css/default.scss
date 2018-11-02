@@ -1528,6 +1528,16 @@ footer {
     padding-left: 0;
   }
 }
+
+.language-toggle-button {
+  cursor: pointer;
+}
+.navbar ul.navbar-nav li a.language-toggle-button {
+  display: none;
+  @media only screen and (min-width: 768px) {
+    display: block;
+  }
+}
 .language-toggle-mobile {
   position: relative;
   padding-top: 20px;

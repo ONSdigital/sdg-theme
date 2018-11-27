@@ -7,8 +7,8 @@
       </div>
       <div class="variable-options">
         <div>
-          <button data-type="select">Select all</button>
-          <button data-type="clear">Clear all</button>
+          <button data-type="select">{{ t.indicator.select_all }}</button>
+          <button data-type="clear">{{ t.indicator.clear_all }}</button>
         </div>
         <% _.each(seriesItem.values, function(item) { %>
           <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
@@ -17,10 +17,13 @@
       
       <% if(allowedFields.indexOf(seriesItem.field) == -1) { %> 
         <div class="variable-hint">
-          Available when '<%= _.findWhere(edges, { To: seriesItem.field }).From %>' is selected
+          {%- capture var_hint_replacement -%}
+            {% raw %}<%= _.findWhere(edges, { To: seriesItem.field }).From %>{% endraw %}
+          {%- endcapture -%}
+          {{ t.indicator.variable_hint | replace_first: '%field', var_hint_replacement }}
         </div>
         <div class="no-data-hint">
-          No options available because of filters above
+          {{ t.indicator.no_data_hint }}
         </div>
       <% }%>
 

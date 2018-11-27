@@ -1,11 +1,11 @@
-{% if meta.graph_type == 'bar' or meta.graph_type == 'line' %}
+{% if meta.graph_type %}
     {% assign graph_type = meta.graph_type %}
     {% if meta.graph_type == 'longitudinal' %}
         {% assign graph_type = 'line' %}
     {% endif %}
 
     <div id="dataset-size-warning" style="display:none">
-      <i class="fa fa-bolt"></i> There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+      <i class="fa fa-bolt"></i> {{ t.indicator.dataset_size_warning }}
     </div>
 
     {% assign graph_template = 'components/charts/' | append: graph_type | append: '.html' %}
@@ -14,6 +14,6 @@
     </div>
     <div id="plotLegend"></div>
 
-    <div id="chartSelectionDownload"></div>    
-    
+    <div id="chartSelectionDownload"></div>
+
 {% endif %}

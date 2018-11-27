@@ -1,6 +1,6 @@
 <div class="container">
   <div class="alert alert-danger" role="alert">
-    <strong class="phase-tag">Alpha</strong> This is a development website. We welcome your
-    <a href="mailto:{{site.email_contacts.suggestions}}">feedback</a>.
+    <strong class="phase-tag">{{ t.header.alpha }}</strong>
+    {{ t.header.disclaimer | replace_first: '%email_address', site.email_contacts.suggestions }}
   </div>
 </div>
